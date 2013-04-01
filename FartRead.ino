@@ -1,35 +1,20 @@
-/* ArduSensor Fart Read
+/* FartRead
 
-Reads the ArduSensor Fart, and prints how much it has been turned on the Serial
-monitor
+Reads the value of the ArduSensor Fart, and prints it out on the Serial
+Monitor.
 
-Qtechknow kits required:
-  ArduSensor Fart
-  
-made on 12 July 12
-created by Quin
-*/
+created by Quin (Qtechknow)
+made on 1 Apr 13
+ */
 
-int ArduSensorValue;   // variable to store the value of the ArduSensor Fart
-unsigned int delayTime = 60000;  // delay for the heater coil in the fart sensor
-// to warm up
+int ArduSensorValue;   // make a variable to hold the value of the ArduSensor
 
 void setup() {
-  Serial.begin(9600);  // start Serial communication at 9600 baud
-  
-  Serial.println("Waiting for fart sensor to warm up:"); // wait to warm up
-
-  delay(delayTime);  // delay until the fart sensor is hot enough
+  Serial.begin(9600);  // start up the Serial Monitor
 }
 
 void loop() {
-  // assign the variable to the value of the ArduSensor Fart
-  ArduSensorValue=analogRead(0);
-  
-  if(ArduSensorValue >= 120) {
-    Serial.println("Fart Detected!");  // display "Fart Detected" if value is
-  }else{  // too far over a certain threshold
-    Serial.println("You currently are safe");  // display "You currently are
-  }       // safe" if there is no readings of farts
-  delay(100);
+  ArduSensorValue=analogRead(0);   // assign the variable to the value of the sensor
+  Serial.println(ArduSensorValue, DEC);  // print the value on the Serial Monitor
+  delay(100);  // delay so the data doesn't come out too fast
 }
