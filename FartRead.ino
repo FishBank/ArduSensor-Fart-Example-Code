@@ -14,7 +14,7 @@ void setup() {
 }
 
 void loop() {
-  ArduSensorValue=analogRead(0);   // assign the variable to the value of the sensor
-  Serial.println(ArduSensorValue, DEC);  // print the value on the Serial Monitor
+  ArduSensorValue=analogRead(0);   // assign the variable to the sensor value
+  Serial.println(ArduSensorValue, DEC); // print the value on the Serial Monitor
   delay(100);  // delay so the data doesn't come out too fast
 }
